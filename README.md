@@ -4,9 +4,10 @@ ADRGEN is small CLI lib to generate records of archtecture decicions.
 
 ## How to use
 
-- clone the project in your local machine;
-- instal the packages;
-- type in your terminal `npm run build`;
-- type `npm start init` in your terminal;
-- be happy!
+- Running the project with `npx adrgen init`;
+- Answer three questions: `how is title of file?` | `what is the context?` | `what is the decision?` | `what is the consequence?`;
+- Be happy!
 
+
+## Credits
+The template used in this project was not developed by me, it was developed and thought by [Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
