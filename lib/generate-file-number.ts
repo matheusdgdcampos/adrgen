@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-export async function generate_file_number() {
+export async function generateFileNumber() {
   const directory = await fs.readdir(path.resolve(process.cwd(), 'docs'), {
     encoding: 'utf-8'
   });
