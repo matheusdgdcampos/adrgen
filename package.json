@@ -4,15 +4,27 @@
   "description": "small CLI to generate files of archtecture decisions for record",
   "main": "./dist/index.js",
   "type": "commonjs",
+  "author": "Matheus da Guia de Campos",
+  "license": "MIT",
+  "bin": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "prebuild": "node ./rm.js",
-    "postbuild": "node ./copy-template.js",
-    "start": "node ./lib/index.js"
+    "prebuild": "node ./rm.cjs",
+    "postbuild": "node ./copy-template.cjs",
+    "start": "node ./dist/index.js",
+    "dev": "tsx ./index.ts init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Teuuz1994/adrgen"
+  },
+  "bugs": {
+    "url": "https://github.com/Teuuz1994/adrgen/issues"
   },
   "files": [
-    "./lib",
-    "README.md"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "adrgen",
@@ -23,9 +35,6 @@
     "decision",
     "records"
   ],
-  "author": "Matheus da Guia de Campos",
-  "license": "MIT",
-  "bin": "./lib/index.js",
   "devDependencies": {
     "@types/node": "^18.11.9",
     "pkgroll": "^1.4.0",
