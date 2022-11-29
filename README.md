@@ -4,7 +4,8 @@ ADRGEN is small CLI lib to generate records of archtecture decicions.
 
 ## How to use
 
-- Running the project with `npx adrgen init`;
+- Instal package with `npm install adrgen --save-dev`;
+- Running the package with `npx adrgen init`;
 - Answer three questions: `how is title of file?` | `what is the context?` | `what is the decision?` | `what is the consequence?`;
 - Be happy!
 
