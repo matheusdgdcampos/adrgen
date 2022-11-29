@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryExists = fs.existsSync(path.resolve(__dirname, 'lib'));
+const directoryExists = fs.existsSync(path.resolve(__dirname, 'dist'));
 
 if (directoryExists) {
-  fs.rmSync(path.resolve(__dirname, 'lib'), {
+  fs.rmSync(path.resolve(__dirname, 'dist'), {
     recursive: true
   });
   process.exit(0);
