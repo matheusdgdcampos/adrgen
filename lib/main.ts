@@ -1,12 +1,12 @@
 import { Command } from 'commander';
 
 import { create_file } from './create-file';
+import { makeQuestion } from './readline-interface';
 import { set_consequence } from './set-consequences';
 import { set_context } from './set-context';
 import { set_date } from './set-date';
 import { set_decision } from './set-decision';
 import { set_title } from './set-title';
-import { makeQuestion } from './readline-interface';
 
 
 export function bootstrap() {
@@ -14,7 +14,7 @@ export function bootstrap() {
   program
     .name('adrgen')
     .description('Generator of archtecture decision record archive')
-    .version('0.1.0')
+    .version('0.1.1')
 
   program
     .command('init')

@@ -1,6 +1,6 @@
 {
   "name": "adrgen",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "small CLI to generate files of archtecture decisions for record",
   "main": "./dist/index.js",
   "type": "commonjs",
