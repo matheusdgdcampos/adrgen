@@ -1,0 +1,6 @@
+{
+  "title": "Digite o título do arquivo: ",
+  "context": "Digite o contexto: ",
+  "decision": "Digite o porque dessa decisão: ",
+  "consequence": "Digite quais são as consequências: "
+}
