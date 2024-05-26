@@ -1,3 +1,10 @@
+<div center>
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/matheusdgdcampos/adrgen">
+    <img alt="GitHub branch check runs" src="https://img.shields.io/github/check-runs/matheusdgdcampos/adrgen/releases">
+    <img alt="Coveralls" src="https://img.shields.io/coverallsCoverage/github/matheusdgdcampos/adrgen">
+    <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/adrgen">
+</div>
+
 # Description
 
 ADRGEN is small CLI lib to generate records of archtecture decicions.
