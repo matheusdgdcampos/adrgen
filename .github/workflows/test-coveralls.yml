@@ -3,9 +3,8 @@ on: ["push", "pull_request"]
 name: Test Coveralls
 
 jobs:
-
   build:
-    name: Build
+    name: Build and coverage
     runs-on: ubuntu-latest
     steps:
 
@@ -18,7 +17,7 @@ jobs:
 
     - name: Npm install and collect test coverage
       run: |
-        npm ci
+        npm install
         npm run test:cov
 
     - name: Coveralls
