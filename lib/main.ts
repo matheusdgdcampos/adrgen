@@ -35,9 +35,9 @@ export async function bootstrap() {
                 const decision = await makeQuestion(lang.decision);
                 const consequence = await makeQuestion(lang.consequence);
                 text_content = setDate(text_content);
-                text_content = setTitle(title, text_content);
-                text_content = setContext(context, text_content);
-                text_content = setDecision(decision, text_content);
+                text_content = String(setTitle(title, text_content));
+                text_content = String(setContext(context, text_content));
+                text_content = String(setDecision(decision, text_content));
                 text_content = setConsequence(consequence, text_content) as string;
                 await createFile(title, text_content);
                 process.exitCode = 0;
@@ -50,9 +50,9 @@ export async function bootstrap() {
             const decision = await makeQuestion(lang.decision);
             const consequence = await makeQuestion(lang.consequence);
             text_content = setDate(text_content);
-            text_content = setTitle(title, text_content);
-            text_content = setContext(context, text_content);
-            text_content = setDecision(decision, text_content);
+            text_content = String(setTitle(title, text_content));
+            text_content = String(setContext(context, text_content));
+            text_content = String(setDecision(decision, text_content));
             text_content = setConsequence(consequence, text_content) as string;
             await createFile(title, text_content);
             process.exitCode = 0;
