@@ -55,8 +55,7 @@ export async function bootstrap() {
             text_content = String(setDecision(decision, text_content));
             text_content = setConsequence(consequence, text_content) as string;
             await createFile(title, text_content);
-            process.exitCode = 0;
-            return;
+            return process.exit(0);
         });
 
     program.parse();

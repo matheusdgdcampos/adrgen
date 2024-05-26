@@ -52,7 +52,6 @@ export async function setAppLanguage(prompt: string): Promise<LanguageResult | v
 
     if (prompt !== 'pt_br' || 'en_us' || 'es_es') {
         Message.error('Language selected must be [pt_br]Portuguese(Brazilian) [en_us]English [es_es]Spanish')
-        process.exitCode = 1;
-        return;
+        return process.exit(1);
     }
 }
