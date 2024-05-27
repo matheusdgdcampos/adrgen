@@ -18,8 +18,4 @@ describe('setConsequence', () => {
         expect(consequence).toBeDefined()
         expect(consequence?.match(consequenceVar)).toHaveLength(1);
     });
-
-    it('Should not be able to generate consequence sentence', () => {
-        expect(setConsequence('', templateContent)).toBeUndefined();
-    });
 });

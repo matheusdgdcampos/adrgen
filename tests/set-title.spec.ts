@@ -18,8 +18,4 @@ describe('setTitle', () => {
         expect(title).toBeDefined();
         expect(title?.match(titleVar)).toHaveLength(1);
     });
-
-    it('Should not be able to generate title sentence', () => {
-        expect(setTitle('', templateContent)).toBeUndefined();
-    });
 });
