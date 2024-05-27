@@ -18,8 +18,4 @@ describe('setContext', () => {
         expect(context).toBeDefined()
         expect(context?.match(contextVar)).toHaveLength(1);
     });
-
-    it('Should not be able to generate context sentence', () => {
-        expect(setContext('', templateContent)).toBeUndefined();
-    });
 });

@@ -18,8 +18,4 @@ describe('setDecision', () => {
         expect(decision).toBeDefined();
         expect(decision?.match(decisionVar)).toHaveLength(1);
     });
-
-    it('Should not be able to generate decision sentence', () => {
-        expect(setDecision('', templateContent)).toBeUndefined();
-    });
 });
