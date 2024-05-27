@@ -1,4 +1,4 @@
-import { Command } from 'commander';
+import { Command } from '@commander-js/extra-typings';
 
 import { createFile } from './create-file';
 import { makeQuestion } from './readline-interface';
@@ -7,32 +7,73 @@ import { setContext } from './set-context';
 import { setDate } from './set-date';
 import { setDecision } from './set-decision';
 import { setTitle } from './set-title';
+import { setAppLanguage } from './set-app-language';
+import { readTemplateContent } from './read-template-content';
+import { fillTitle } from './utils/fill-title';
+import { fillContext } from './utils/fill-context';
+import { fillDecision } from './utils/fill-decision';
+import { fillConsequence } from './utils/fill-consequence';
+import { getAppLang } from './get-app-lang';
+import { Logger } from './logger/logger';
+
+export async function bootstrap() {
+    const program = new Command('adrgen');
+    program
+        .description('Generator of archtecture decision record archive')
+        .version((await import('../package.json')).version, '-v, --version');
 
 
-export function bootstrap() {
-  const program = new Command();
-  program
-    .name('adrgen')
-    .description('Generator of archtecture decision record archive')
-    .version('1.0.0')
+    program
+        .command('init')
+        .description('Generate file model of recorder')
+        .argument('[string]', 'Set language running CLI [pt_br]Portuguese(Brazilian) [en_us]English [es_es]Spanish')
+        .option('-l, --lang', 'Set language running CLI [pt_br]Portuguese(Brazilian) [en_us]English [es_es]Spanish', 'en_us')
+        .action(async (arg) => {
+            let text_content: string = await readTemplateContent();
 
-  program
-    .command('init')
-    .description('Generate file model of recorder')
-    .action(async () => {
-      let text_content: string;
-      const title = String(await makeQuestion('how is title of file? '));
-      const context = String(await makeQuestion('type a context: '));
-      const decision = String(await makeQuestion('type a decision: '));
-      const consequence = String(await makeQuestion('type a consequence: '));
-      text_content = await setDate();
-      text_content = setTitle(title, text_content);
-      text_content = setContext(context, text_content);
-      text_content = setDecision(decision, text_content);
-      text_content = setConsequence(consequence, text_content);
-      await createFile(title, text_content);
-      process.exit(0);
-    })
+            if (arg === undefined) {
+                const selectedLang = await getAppLang();
+                const lang = await setAppLanguage(selectedLang);
+                const title = await fillTitle(lang.title);
+                const context = await fillContext(lang.context);
+                const decision = await fillDecision(lang.decision);
+                const consequence = await fillConsequence(lang.consequence);
+                Logger.log('Generate date of record.');
+                text_content = setDate(text_content);
+                Logger.log('Date generated register with success!');
+                Logger.log('Entering parameters you answered.');
+                text_content = setTitle(title, text_content);
+                text_content = setContext(context, text_content);
+                text_content = setDecision(decision, text_content);
+                text_content = setConsequence(consequence, text_content);
+                Logger.log('Parameters entered successfully.');
+                Logger.log('Generating architecture decision record file...');
+                await createFile(title, text_content);
+                Logger.log('Architecture decision record file generated with success!');
+                Logger.log('Finishing process.');
+                process.exit(0)
+            }
 
-  program.parse()
+            const lang = await setAppLanguage(arg);
+            const title = await fillTitle(lang.title);
+            const context = await fillContext(lang.context);
+            const decision = await fillDecision(lang.decision);
+            const consequence = await fillConsequence(lang.consequence);
+            Logger.log('Generate date of record.');
+            text_content = setDate(text_content);
+            Logger.log('Date generated register with success!');
+            Logger.log('Entering parameters you answered.');
+            text_content = setTitle(title, text_content);
+            text_content = setContext(context, text_content);
+            text_content = setDecision(decision, text_content);
+            text_content = setConsequence(consequence, text_content);
+            Logger.log('Parameters entered successfully.');
+            Logger.log('Generating architecture decision record file...');
+            await createFile(title, text_content);
+            Logger.log('Architecture decision record file generated with success!');
+            Logger.log('Finishing process.');
+            return process.exit(0);
+        });
+
+    program.parse();
 }
