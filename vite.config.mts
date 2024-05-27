@@ -4,10 +4,9 @@ export default defineConfig({
     test: {
         testTimeout: 15000,
         coverage: {
-            provider: 'istanbul',
-            reporter: ['text', 'html', 'json', 'lcov', 'clover'],
+            reporter: ['text', 'html', 'json', 'lcov'],
             include: ['**/*.ts'],
-            exclude: ['./lib/main.ts', './lib/readline-interface.ts', './index.ts']
+            exclude: ['main.ts', 'readline-interface.ts', 'index.ts', 'fill-consequence.ts', 'fill-context.ts', 'fill-decision.ts', 'fill-title.ts']
         }
     }
 })
