@@ -4,6 +4,7 @@
 name: Config NodeJS and publish
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
