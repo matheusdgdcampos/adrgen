@@ -1,28 +1,14 @@
 import { Logger } from './logger/logger';
 
 export async function setAppLanguage(prompt: string) {
-    if (prompt === 'es_es') {
-        const { consequence, context, decision, title } = (await import('./lang/es_es.json')).default;
-        return {
-            consequence,
-            context,
-            decision,
-            title
-        }
-    }
+  const langs = {
+    'es_es': (await import('./lang/es_es.json')).default,
+    'pt_br': (await import('./lang/pt_br.json')).default,
+    'en_us': (await import('./lang/en_us.json')).default,
+  }
 
-    if (prompt === 'pt_br') {
-        const { consequence, context, decision, title } = (await import('./lang/pt_br.json')).default;
-        return {
-            consequence,
-            context,
-            decision,
-            title
-        }
-    }
-
-    if (prompt === 'en_us') {
-        const { consequence, context, decision, title } = (await import('./lang/en_us.json')).default;
+    if (langs[prompt as keyof typeof langs]) {
+        const { consequence, context, decision, title } = langs[prompt as keyof typeof langs];
         return {
             consequence,
             context,
@@ -32,7 +18,7 @@ export async function setAppLanguage(prompt: string) {
     }
 
     Logger.info('The default language en_us is set up');
-    const { consequence, context, decision, title } = (await import('./lang/en_us.json')).default;
+    const { consequence, context, decision, title } = langs['en_us'];
     return {
         consequence,
         context,
