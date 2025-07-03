@@ -1,7 +1,6 @@
 import { Command } from '@commander-js/extra-typings';
 
 import { createFile } from './create-file';
-import { makeQuestion } from './readline-interface';
 import { setConsequence } from './set-consequences';
 import { setContext } from './set-context';
 import { setDate } from './set-date';
@@ -20,7 +19,7 @@ export async function bootstrap() {
     const program = new Command('adrgen');
     program
         .description('Generator of archtecture decision record archive')
-        .version((await import('../package.json')).version, '-v, --version');
+        .version((await import('../package.json')).default.version, '-v, --version');
 
 
     program
@@ -38,19 +37,19 @@ export async function bootstrap() {
                 const context = await fillContext(lang.context);
                 const decision = await fillDecision(lang.decision);
                 const consequence = await fillConsequence(lang.consequence);
-                Logger.log('Generate date of record.');
+                Logger.info('Generate date of record.');
                 text_content = setDate(text_content);
-                Logger.log('Date generated register with success!');
-                Logger.log('Entering parameters you answered.');
+                Logger.info('Date generated register with success!');
+                Logger.info('Entering parameters you answered.');
                 text_content = setTitle(title, text_content);
                 text_content = setContext(context, text_content);
                 text_content = setDecision(decision, text_content);
                 text_content = setConsequence(consequence, text_content);
-                Logger.log('Parameters entered successfully.');
-                Logger.log('Generating architecture decision record file...');
+                Logger.info('Parameters entered successfully.');
+                Logger.info('Generating architecture decision record file...');
                 await createFile(title, text_content);
-                Logger.log('Architecture decision record file generated with success!');
-                Logger.log('Finishing process.');
+                Logger.info('Architecture decision record file generated with success!');
+                Logger.info('Finishing process.');
                 process.exit(0)
             }
 
@@ -59,19 +58,19 @@ export async function bootstrap() {
             const context = await fillContext(lang.context);
             const decision = await fillDecision(lang.decision);
             const consequence = await fillConsequence(lang.consequence);
-            Logger.log('Generate date of record.');
+            Logger.info('Generate date of record.');
             text_content = setDate(text_content);
-            Logger.log('Date generated register with success!');
-            Logger.log('Entering parameters you answered.');
+            Logger.info('Date generated register with success!');
+            Logger.info('Entering parameters you answered.');
             text_content = setTitle(title, text_content);
             text_content = setContext(context, text_content);
             text_content = setDecision(decision, text_content);
             text_content = setConsequence(consequence, text_content);
-            Logger.log('Parameters entered successfully.');
-            Logger.log('Generating architecture decision record file...');
+            Logger.info('Parameters entered successfully.');
+            Logger.info('Generating architecture decision record file...');
             await createFile(title, text_content);
-            Logger.log('Architecture decision record file generated with success!');
-            Logger.log('Finishing process.');
+            Logger.info('Architecture decision record file generated with success!');
+            Logger.info('Finishing process.');
             return process.exit(0);
         });
 

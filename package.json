@@ -1,56 +1,56 @@
 {
-    "name": "adrgen",
-    "version": "2.0.0",
-    "description": "small CLI to generate files of archtecture decisions for record",
-    "main": "./dist/index.js",
-    "type": "commonjs",
-    "author": "Matheus da Guia de Campos",
-    "license": "MIT",
-    "bin": "./dist/index.js",
-    "scripts": {
-        "build": "tsc",
-        "prebuild": "node ./scripts/rm.cjs",
-        "postbuild": "node ./scripts/copy-template.cjs",
-        "prepublish": "npm run build",
-        "start": "node ./dist/index.js",
-        "dev": "tsx ./index.ts",
-        "test": "vitest run --passWithNoTests --no-file-parallelism",
-        "test:cov": "vitest run --coverage --passWithNoTests --no-file-parallelism",
-        "test:debug": "vitest run --inspectBrk --passWithNoTests --no-file-parallelism",
-        "test:watch": "vitest watch --passWithNoTests --no-file-parallelism"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Teuuz1994/adrgen"
-    },
-    "bugs": {
-        "url": "https://github.com/Teuuz1994/adrgen/issues"
-    },
-    "files": [
-        "dist",
-        "README.md",
-        "LICENSE"
-    ],
-    "keywords": [
-        "adrgen",
-        "adr",
-        "generator",
-        "gen",
-        "archtecture",
-        "decision",
-        "records"
-    ],
-    "devDependencies": {
-        "@types/node": "^20.12.12",
-        "@vitest/coverage-v8": "^1.6.0",
-        "@vitest/ui": "^1.6.0",
-        "tsx": "^4.11.0",
-        "typescript": "^5.4.5",
-        "vitest": "^1.6.0"
-    },
-    "dependencies": {
-        "@commander-js/extra-typings": "^12.1.0",
-        "chalk": "^5.3.0",
-        "commander": "^12.1.0"
-    }
+  "name": "adrgen",
+  "version": "2.0.1",
+  "description": "small CLI to generate files of archtecture decisions for record",
+  "main": "./dist/index.js",
+  "type": "commonjs",
+  "author": "Matheus da Guia de Campos",
+  "license": "MIT",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "node ./scripts/rm.cjs",
+    "postbuild": "node ./scripts/copy-template.cjs",
+    "prepublish": "npm run build",
+    "start": "node ./dist/index.js",
+    "dev": "tsx ./index.ts",
+    "test": "vitest run --passWithNoTests --no-file-parallelism",
+    "test:cov": "vitest run --coverage --passWithNoTests --no-file-parallelism",
+    "test:debug": "vitest run --inspectBrk --passWithNoTests --no-file-parallelism",
+    "test:watch": "vitest watch --passWithNoTests --no-file-parallelism"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Teuuz1994/adrgen"
+  },
+  "bugs": {
+    "url": "https://github.com/Teuuz1994/adrgen/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "adrgen",
+    "adr",
+    "generator",
+    "gen",
+    "archtecture",
+    "decision",
+    "records"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
+    "tsx": "^4.11.0",
+    "typescript": "^5.8.3",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^12.1.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
 }
