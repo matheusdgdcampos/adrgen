@@ -31,8 +31,7 @@ export async function setAppLanguage(prompt: string) {
         }
     }
 
-    Logger.error('Language selected must be [pt_br]Portuguese(Brazilian) [en_us]English [es_es]Spanish')
-    Logger.info('The default language will be used instead of en_us');
+    Logger.info('The default language en_us is set up');
     const { consequence, context, decision, title } = await import('./lang/en_us.json');
     return {
         consequence,
