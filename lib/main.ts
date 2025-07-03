@@ -19,7 +19,7 @@ export async function bootstrap() {
     const program = new Command('adrgen');
     program
         .description('Generator of archtecture decision record archive')
-        .version((await import('../package.json')).version, '-v, --version');
+        .version((await import('../package.json')).default.version, '-v, --version');
 
 
     program
